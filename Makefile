@@ -23,12 +23,14 @@ DOWNLOADPATH := $(shell cat DOWNLOADPATH)
 # folder to locally save the results
 BUILD_DIR := $(BUILD_RESULTS)/$(OUTPUT_NAME)/$(DATE)_$(COMMIT_HASH)
 
+default: download_from_s3 dockerbuild
 
 download_from_S3:
-	aws s3 cp s3://$(AWS_BUCKET)/$(DOWNLOADPATH) ./binary.tar.gz
+	aws s3 cp s3://$(AWS_BUCKET)/$(DOWNLOADPATH) ./registrator
+#	aws s3 cp s3://$(AWS_BUCKET)/$(DOWNLOADPATH) ./binary.tar.gz
 
 download_from_http:
-	curl -L $(DOWNLOADPATH) > ./binary.tar.gz
+#	curl -L $(DOWNLOADPATH) > ./binary.tar.gz
 
 # extract downloaded tar archives to content/
 extract:
