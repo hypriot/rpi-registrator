@@ -23,7 +23,7 @@ DOWNLOADPATH := $(shell cat DOWNLOADPATH)
 # folder to locally save the results
 BUILD_DIR := $(BUILD_RESULTS)/$(OUTPUT_NAME)/$(DATE)_$(COMMIT_HASH)
 
-default: download_from_s3 dockerbuild
+default: download_from_S3 dockerbuild
 
 download_from_S3:
 	aws s3 cp s3://$(AWS_BUCKET)/$(DOWNLOADPATH) ./registrator
