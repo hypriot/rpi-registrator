@@ -40,6 +40,7 @@ extract:
 
 # build a docker image
 dockerbuild:
+	mkdir -p $(BUILD_RESULTS)
 	docker rmi -f $(REGISTRY_NAMESPACE)/$(OUTPUT_NAME) || true
 	docker build -t $(REGISTRY_NAMESPACE)/$(OUTPUT_NAME) .
 
