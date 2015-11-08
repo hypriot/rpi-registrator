@@ -27,10 +27,11 @@ default: download_from_S3 dockerbuild dockerpush
 
 download_from_S3:
 	aws s3 cp s3://$(AWS_BUCKET)/$(DOWNLOADPATH) ./registrator
+	chmod a+x ./registrator
 #	aws s3 cp s3://$(AWS_BUCKET)/$(DOWNLOADPATH) ./binary.tar.gz
 
 download_from_http:
-#	curl -L $(DOWNLOADPATH) > ./binary.tar.gz
+	curl -L $(DOWNLOADPATH) > ./binary.tar.gz
 
 # extract downloaded tar archives to content/
 extract:
