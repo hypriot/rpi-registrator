@@ -59,16 +59,16 @@ dockerpush:
 
 	# push DATE COMMIT_HASH
 	docker tag -f $(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):latest "$(REGISTRY_URL)$(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):$(DATE)_$(COMMIT_HASH)"
-	docker push "$(REGISTRY_URL)/$(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):$(DATE)_$(COMMIT_HASH)"
+	docker push "$(REGISTRY_URL)$(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):$(DATE)_$(COMMIT_HASH)"
 	
 	# push latest
 	docker tag -f $(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):latest "$(REGISTRY_URL)$(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):latest"
-	docker push "$(REGISTRY_URL)/$(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):latest"
+	docker push "$(REGISTRY_URL)$(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):latest"
 
 	# remove tags
-	docker rmi "$(REGISTRY_URL)/$(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):$(VERSION)" || true
-	docker rmi "$(REGISTRY_URL)/$(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):$(DATE)_$(COMMIT_HASH)" || true
-	docker rmi "$(REGISTRY_URL)/$(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):latest" || true
+	docker rmi "$(REGISTRY_URL)$(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):$(VERSION)" || true
+	docker rmi "$(REGISTRY_URL)$(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):$(DATE)_$(COMMIT_HASH)" || true
+	docker rmi "$(REGISTRY_URL)$(REGISTRY_NAMESPACE)/$(OUTPUT_NAME):latest" || true
 
 # save the image as tar
 dockersave:
