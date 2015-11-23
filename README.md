@@ -1,6 +1,6 @@
 # rpi-registrator
 
-This repo builds an ARM compatible image of https://github.com/gliderlabs/registrator.
+This repo builds an ARM compatible Docker image of https://github.com/gliderlabs/registrator.
 
 ## How to use ##
 The repository is supposed to be used with the continuous integration tool [drone](https://drone.io/). 
