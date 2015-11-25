@@ -2,7 +2,10 @@
 
 This repo builds an ARM compatible Docker image of https://github.com/gliderlabs/registrator.
 
-## How to use ##
+## How to run
+See: https://hub.docker.com/r/hypriot/rpi-registrator/
+
+## How to build
 The repository is supposed to be used with the continuous integration tool [drone](https://drone.io/). 
 Many functions can only be executed, if all environment variables in the Makefile are set.
 
