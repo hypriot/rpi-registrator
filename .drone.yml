@@ -9,11 +9,7 @@ build:
     - cd ${GOPATH}/src/github.com/gliderlabs/registrator
     - go get -d -v ./...
     - go build -ldflags "-X main.Version=${VERSION}" .
-    - ls -la
-    - pwd
-    - find / -type f -name ".drone.yml"
-    - ls -la /drone/src/github.com/
-#    - cp registrator /drone/src
+    - cp registrator /drone/src/github.com/hypriot/rpi-registrator/
 
 
 publish:
