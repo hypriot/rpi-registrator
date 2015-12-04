@@ -11,8 +11,8 @@ build:
     - go build -ldflags "-X main.Version=${VERSION}" .
     - ls -la
     - pwd
-    - ls -la / 
-    - ls -la /drone/src/
+    - find / -type f -name ".drone.yml"
+    - ls -la /drone/src/github.com/
 #    - cp registrator /drone/src
 
 
