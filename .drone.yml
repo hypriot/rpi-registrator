@@ -8,37 +8,13 @@ build:
     - git clone -b ${VERSION} https://github.com/gliderlabs/registrator ${GOPATH}/src/github.com/gliderlabs/registrator
     - cd ${GOPATH}/src/github.com/gliderlabs/registrator
     - go get -d -v ./...
-#    - go get github.com/cenkalti/backoff
-#    - go get github.com/fsouza/go-dockerclient
-#    - go get github.com/gliderlabs/pkg/usage
-#    - go get github.com/hashicorp/consul/api
-#    - go get gopkg.in/coreos/go-etcd.v0/etcd
-#    - go get github.com/google/go-github/github
-#    - go get github.com/inconshreveable/go-keen
-#    - go get golang.org/x/oauth2
-#    - go get github.com/armon/circbuf
-#    - go get github.com/armon/go-metrics
-#    - go get github.com/armon/go-radix
-#    - go get github.com/hashicorp/go-checkpoint
-#    - go get github.com/hashicorp/go-memdb
-#    - go get github.com/hashicorp/go-msgpack/codec
-#    - go get github.com/hashicorp/go-syslog
-#    - go get github.com/hashicorp/golang-lru
-#    - go get github.com/hashicorp/hcl
-#    - go get github.com/hashicorp/logutils
-#    - go get github.com/hashicorp/memberlist
-#    - go get github.com/hashicorp/net-rpc-msgpackrpc
-#    - go get github.com/hashicorp/raft
-#    - go get github.com/hashicorp/raft-boltdb
-#    - go get github.com/hashicorp/scada-client
-#    - go get github.com/hashicorp/yamux
-#    - go get github.com/inconshreveable/muxado
-#    - go get github.com/mitchellh/cli
-#    - go get github.com/mitchellh/mapstructure
-#    - go get github.com/ryanuber/columnize
-#    - go get github.com/hashicorp/mdns
-    - go build -ldflags "-X main.Version ${VERSION}" .
+    - go build -ldflags "-X main.Version=${VERSION}" .
     - ls -la
+    - pwd
+    - ls -la / 
+    - ls -la /drone/src/
+#    - cp registrator /drone/src
+
 
 publish:
   docker:
