@@ -12,6 +12,13 @@ build:
     - cp registrator /drone/src/github.com/hypriot/rpi-registrator/
 
 
+test:
+  image: hypriot/rpi-ruby:2.2.2
+  commands:
+    - bundle install
+    - sudo apt-get install rake
+    - rake spec
+
 publish:
   docker:
 #    environment:
