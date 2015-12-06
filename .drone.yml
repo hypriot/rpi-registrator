@@ -10,6 +10,8 @@ build:
     - go get -d -v ./...
     - go build -ldflags "-X main.Version=${VERSION}" .
     - cp registrator /drone/src/github.com/hypriot/rpi-registrator/
+    - export TIMESTAMP=$(date +"%Y-%m-%d_%H%M")
+    - export REPO=$(git rev-parse --short HEAD)
     - export IMAGE_DIR=/drone/src/buildresult/docker-images/${PACKAGE_NAME}/${TIMESTAMP}_${REPO}   
     - mkdir -p ${IMAGE_DIR}
     - ln -s ${IMAGE_DIR} /drone/src/buildresult/latest
