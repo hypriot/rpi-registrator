@@ -4,7 +4,7 @@ build:
   image: hypriot/rpi-golang:1.5
   commands:
     - git clone --branch v2.0.0 https://github.com/coreos/go-etcd ${GOPATH}/src/github.com/coreos/go-etcd
-    - export VERSION=v6
+    - export VERSION=master
     - git clone -b ${VERSION} https://github.com/gliderlabs/registrator ${GOPATH}/src/github.com/gliderlabs/registrator
     - cd ${GOPATH}/src/github.com/gliderlabs/registrator
     - go get -d -v ./...
@@ -24,7 +24,8 @@ publish:
     password: $$DOCKER_PASS
     email: $$DOCKER_EMAIL
     repo: hypriot/rpi-registrator
-    tag: v6
+    tag:
+      - master
     save:
       file: /drone/src/buildresult/latest/registrator.tar
 
