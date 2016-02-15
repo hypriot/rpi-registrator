@@ -4,9 +4,9 @@ build:
   image: hypriot/rpi-golang:1.5
   commands:
     - git clone --branch v2.0.0 https://github.com/coreos/go-etcd ${GOPATH}/src/github.com/coreos/go-etcd
-    - export VERSION=master
-    - git clone -b ${VERSION} https://github.com/gliderlabs/registrator ${GOPATH}/src/github.com/gliderlabs/registrator
-    - cd ${GOPATH}/src/github.com/gliderlabs/registrator
+    - export VERSION=sync-to-local-containers
+    - git clone -b ${VERSION} https://github.com/dsouzajude/registrator.git ${GOPATH}/src/github.com/dsouzajude/registrator
+    - cd ${GOPATH}/src/github.com/dsouzajude/registrator
     - go get -d -v ./...
     - go build -ldflags "-X main.Version=${VERSION}" .
     - cp registrator /drone/src/github.com/hypriot/rpi-registrator/
@@ -25,7 +25,7 @@ publish:
     email: $$DOCKER_EMAIL
     repo: hypriot/rpi-registrator
     tag:
-      - master
+      - stale-services
     save:
       file: /drone/src/buildresult/latest/registrator.tar
 
